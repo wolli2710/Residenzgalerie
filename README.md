@@ -10,8 +10,19 @@ The project Residenzgalerie are multiple installations for an exhibition of the 
 The light installation is based on the following components:
 * Arduino Mega
 * 8 channel 5V relais module for Arduino
-* Breadboard
-* Wires
+* breadboard
+* wires
+* neon tubes
+* power cable
+* luster terminal
+
+
+1. Arduino Setup:
+* upload the file LightInstallation.ino to your Arduino
+* wire up your Arduino as shown on the image <a href="">here</a>
+
+ATTENTION: Because of the usage of life-endangering voltage please ensure you are understanding what you are doing!!
+
 
 
 ### Sound installation:
@@ -20,15 +31,20 @@ The sound installation is based on the following components:
 * Raspberry Pi
 * USB cable
 * LV-MaxSonar - EZ1
-* Wires
+* wires
 
 1. Raspberry Pi Setup:
-The Raspberry Pi runs on raspbian OS and uses the node.js version 0.10.12. I put the node.js programm
-The node.js programm starts from /etc/rc.local as forever process:
-* Install <a href="https://github.com/nodejitsu/forever">forever</a>
-* open /etc/rc.local and attach: /pathToForever start /pathToYourNodeJsScript
-* don't forget to link node: sudo ln -s /pathToNodeJs /usr/bin/node
-* force the raspberryPi to use the sereo jack: amixer cset numid=3 1
+The Raspberry Pi runs on raspbian OS and uses some python code which you can find in this repository.
+To get up and running you simply have to install raspbian as described <a href="http://www.raspberrypi.org/documentation/installation/installing-images/README.md">here</a> and follow the steps below:
+
+* use the file server.py
+* open /etc/rc.local and attach: python /var/myapp/server.py &
+* connect the Arduino via USB and reboot 
+
+2. Arduino Setup:
+* upload the file SoundInstallation.ino to your Arduino
+* wire up your Arduino as shown on the image <a href="">here</a>
+
 
 
 <img width="980" src="light_installation1.jpg">
